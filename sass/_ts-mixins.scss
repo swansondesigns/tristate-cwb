@@ -1,0 +1,16 @@
+@import 'ts-vars';
+
+$sm: 600px;
+$md: 900px;
+$lg: 1270px;
+
+@mixin bp($breakpoint-width) {
+	@media (min-width: $breakpoint-width) {
+		@content;
+	}
+}
+
+@mixin mw {
+	max-width: 1200px;
+	margin: 0 auto;
+}
