@@ -1,0 +1,286 @@
+:root {
+	--swiper-theme-color: #3d4d55 !important;
+}
+
+
+.slider-title-text {
+	margin: 0;
+	text-align: center;
+	padding: 15px 0;
+	color: #fff;
+	background: #06548a;
+	/*line-height: 1;*/
+	font-family: inherit;
+	font-size: 1.5rem;
+}
+
+.ts-slider {
+	width: 100vw;
+	max-width: 1200px;
+	height: 400px;
+	padding: 0;
+	padding-bottom: 40px;
+	background-color: #fff;
+
+	.ts-slide {
+		// height: auto;
+		background: #757575;
+		// display: flex;
+		// flex-direction: column;
+		opacity: 0.2;
+		transition: opacity 0.3s;
+		overflow: hidden;
+
+		&.swiper-slide-active {
+			opacity: 1;
+			// z-index: 1;
+		}
+
+		.wrap-img {
+			position: relative;
+			width: 100%;
+			overflow: hidden;
+			height: 100%;
+
+			a {
+				width: 100%;
+				height: 100%;
+				display: block;
+				position: absolute;
+			}
+
+			img {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+		}
+
+		.wrap-desc {
+			h3 {
+				text-align: center;
+				margin: 0;
+				padding: 15px;
+				position: relative;
+
+				/*transform: translateY(-50%);*/
+				a {
+					color: #fff;
+
+					&:hover {
+						color: #06548a !important;
+					}
+				}
+			}
+		}
+
+		&.slide-lightbox .wrap-desc h3 a {
+			text-decoration: none !important;
+		}
+
+		&.slide-lightbox .wrap-img a::after {
+			content: '\e029';
+			font-family: 'Glyphicons Halflings';
+
+			position: absolute;
+			/* left: 50%; */
+			/* top: 50%; */
+			font-size: 2.7rem;
+			/* transform: translate(-50%, -50%); */
+			/* text-shadow: 0px 0px 1px #000; */
+			/* color: #06548A; */
+			color: #fff;
+			text-shadow: 0px 0px 2px #000;
+			bottom: 4%;
+			/* transform: translateX(-50%); */
+			right: 5%;
+			transition: color 0.3s;
+		}
+
+		&.slide-lightbox .wrap-img a:hover::after {
+			color: #06548a;
+			text-shadow: 0px 0px 4px #fff;
+		}
+
+		&.ts-slide-video {
+			a.video-thumbnail {
+				height: 100%;
+				width: 100%;
+				position: absolute;
+				top: 0;
+				left: 0;
+
+				>img {
+					height: 100%;
+					width: 100%;
+					object-fit: cover;
+				}
+
+				&::after {
+					content: '';
+					background-image: url(https://tristate.coop/sites/default/files/images/esg/play-video-thumbnail-cover.svg);
+					background-repeat: no-repeat;
+					background-position: center;
+					height: 50%;
+					aspect-ratio: 1/1;
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					background-size: contain;
+					transform: translate(-50%, -50%);
+				}
+			}
+		}
+	}
+
+	&.ts-slider-esg {
+
+		.swiper-button-prev,
+		.swiper-button-next {
+			display: none;
+		}
+
+		.ts-slide {
+
+			// width: 100% !important;
+			&.ts-slide-quote {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				color: #3d4d55;
+				background-color: #fff;
+				overflow: hidden;
+				$translate: 0%,
+				-25%;
+
+				&::before,
+				&::after {
+					content: '';
+					$quote-size: clamp(110px, 25vw, 220px);
+					height: $quote-size;
+					width: $quote-size;
+					position: absolute;
+					background-size: contain;
+					background-repeat: no-repeat;
+					z-index: 0;
+				}
+
+				&::before {
+					top: 0;
+					left: 0;
+					background-position: top left;
+					background-image: url('https://tristate.coop/sites/default/files/images/esg/quote.svg');
+					transform: translate($translate);
+				}
+
+				&::after {
+					bottom: 0;
+					right: 0;
+					background-position: bottom right;
+					background-image: url('https://tristate.coop/sites/default/files/images/esg/quote.svg');
+					transform: rotate(180deg) translate($translate);
+				}
+
+				figure.quote {
+					font-size: 20px;
+					width: 75%;
+					margin: 0;
+					position: relative;
+					z-index: 1;
+
+					blockquote {
+						margin: 0;
+						font-weight: 700;
+						text-align: justify;
+						padding: 0;
+						border: 0;
+					}
+
+					figcaption {
+						margin-top: 20px;
+						font-family: 'Aleo', serif;
+						font-size: 120%;
+						font-weight: 300;
+						color: #719ab8;
+						padding: 0;
+						border: 0;
+					}
+				}
+
+				&.ts-slide-quote-dark {
+					color: #fff;
+					background-color: #3d4d55;
+
+					&::before {
+						background-image: url('https://tristate.coop/sites/default/files/images/esg/quote-dark.svg');
+					}
+
+					&::after {
+						background-image: url('https://tristate.coop/sites/default/files/images/esg/quote-dark.svg');
+					}
+
+					figure.quote figcaption {
+						color: inherit;
+					}
+				}
+			}
+
+			&.ts-slide-figure {
+				* {
+					position: absolute;
+					height: 100%;
+					width: 100%;
+					top: 0;
+					left: 0;
+				}
+
+				figure {
+					margin: 0;
+
+					img {
+						object-fit: cover;
+					}
+
+					figcaption {
+						$figpadding: 40px;
+						top: initial;
+						bottom: 0;
+						z-index: 1;
+						height: auto;
+						background-color: rgba(0, 0, 0, 0.5);
+						padding: 30px $figpadding;
+						width: calc(100% - ($figpadding * 2));
+						color: #fff;
+						text-align: center;
+						border: 0;
+					}
+				}
+			}
+		}
+
+		@media screen and (min-width: 600px) {
+
+			.swiper-button-next,
+			.swiper-button-prev {
+				display: flex;
+				height: 100%;
+				top: 0;
+				margin: 0;
+				width: 20%;
+			}
+
+			.swiper-button-prev {
+				left: 0;
+			}
+
+			.swiper-button-next {
+				right: 0;
+			}
+
+			.ts-slide {
+				width: 60% !important;
+			}
+		}
+	}
+}
