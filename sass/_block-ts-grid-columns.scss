@@ -1,0 +1,91 @@
+@import 'ts-mixins';
+
+.ts-grid-row {
+	display: flex;
+	flex-direction: column;
+
+	$ar: 742 / 550;
+
+	.ts-grid-column {
+		&.ts-grid-column-img {
+			aspect-ratio: $ar;
+			position: relative;
+			order: 0;
+
+			img {
+				object-fit: cover;
+				position: absolute;
+				height: 100%;
+				width: 100%;
+			}
+		}
+
+		.ts-grid-column-copy {
+			order: 1;
+			padding: 7vh 20px;
+			box-sizing: border-box;
+			text-align: center;
+
+			.button-container {
+				margin-top: 52px;
+			}
+		}
+	}
+
+	$ar: 1150 / 700;
+
+	@include bp($sm) {
+		flex-direction: row;
+		@include mw;
+
+		&.ts-grid-row-reverse {
+			.ts-grid-column.ts-grid-column-img {
+				order: 1;
+			}
+
+			.ts-grid-column.ts-grid-column-copy {
+				order: 0;
+			}
+		}
+
+		.ts-grid-column {
+			flex: 0 0 50%;
+			order: initial;
+
+			&.ts-grid-column-img {
+				aspect-ratio: $ar;
+			}
+
+			img.ts-image-truck {
+				object-position: 60% center;
+			}
+
+			.ts-grid-column-copy {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				text-align: left;
+				padding: 7vh 10%;
+
+				.button-container {
+					margin-top: 32px;
+				}
+			}
+		}
+	}
+
+	@include bp($md) {
+		.ts-grid-column {
+			img.ts-image-truck {
+				object-position: 40% center;
+			}
+		}
+	}
+
+	@include bp($lg) {
+		.ts-grid-column {
+			display: flex;
+			align-items: center;
+		}
+	}
+}

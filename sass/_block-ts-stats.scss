@@ -1,0 +1,76 @@
+@import 'ts-mixins';
+
+.ts-stats-container {
+	text-align: center;
+
+	.stats {
+
+		.stat {
+			padding: 1%;
+			max-width: 250px;
+			margin: 0 auto 20px;
+
+			.stat-counter {
+				position: relative;
+				display: inline-block;
+				font-family: $font-serif;
+				font-size: 40px;
+				font-weight: lighter;
+
+				stat-value {
+					display: inline-block;
+					text-align: right;
+
+				}
+
+				.stat-unit {
+					position: absolute;
+					top: 50%;
+					left: 100%;
+					transform: translate(2px, -50%);
+					// font-size: 80%;
+
+					&.stat-unit-before {
+						left: auto;
+						right: 100%;
+						transform: translate(-2px, -50%);
+					}
+
+
+				}
+
+			}
+
+			&.stat-inline {
+				.stat-unit {
+					position: initial;
+					display: inline;
+				}
+			}
+		}
+	}
+
+	@include bp($md) {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+
+		aspect-ratio: 2300/750;
+
+		.stats {
+			display: flex;
+			width: 80%;
+
+			.stat {
+				padding: 20px;
+				/* max-width: 400px; */
+				margin: 0 auto 20px;
+				flex: 0 0 33%;
+				box-sizing: border-box;
+				// outline: 1px solid;
+				max-width: none;
+			}
+		}
+	}
+}

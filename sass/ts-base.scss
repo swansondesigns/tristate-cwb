@@ -1,9 +1,20 @@
 section {
-	max-width: 1200px;
+	max-width: 1600px;
 	margin: 0 auto;
 }
+
 body {
 	font-family: 'Sarabun', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+body {
+	padding: 0;
+	margin: 0;
+}
+
+.l-constrain--no-padding {
+	max-width: 1200px;
+	margin: 0 auto 2rem auto;
 }
 
 h1,
@@ -18,4 +29,8 @@ h6 {
 	font-style: normal;
 	font-weight: 300;
 	color: #636466;
+}
+
+section p {
+	margin-top: 0;
 }

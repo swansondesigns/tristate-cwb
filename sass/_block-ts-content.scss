@@ -1,0 +1,21 @@
+@import 'ts-mixins';
+
+.ts-content {
+	box-sizing: border-box;
+	padding: 10%;
+	text-align: center;
+
+	li {
+		text-align: left;
+	}
+
+	&.ts-content-narrow {
+		$padding-lr: #{calc(15% + 120px)};
+		padding-left: $padding-lr;
+		padding-right: $padding-lr;
+	}
+
+	@include bp($md) {
+		padding: 60px 10%;
+	}
+}

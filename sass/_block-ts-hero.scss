@@ -1,0 +1,45 @@
+@import 'ts-mixins';
+
+.ts-hero {
+	height: auto;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+
+	img.hero-image {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+		object-fit: cover;
+		z-index: 0;
+	}
+
+	.hero-content {
+		position: relative;
+		z-index: 1;
+		color: white;
+		line-height: 1;
+		text-align: center;
+		padding: 10%;
+
+		* {
+			color: white;
+			line-height: 1.1;
+			margin: 0;
+		}
+
+	}
+
+	@include bp($md) {
+		aspect-ratio: 2300 / 750;
+
+		.hero-content {
+			* {
+				color: white;
+				line-height: 1.4;
+				margin: 0;
+			}
+		}
+	}
+}

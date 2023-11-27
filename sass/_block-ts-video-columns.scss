@@ -1,0 +1,72 @@
+@import 'ts-mixins';
+
+.ts-video-columns {
+	.ts-video-column {
+		.ts-video-column-content {
+			padding: 7vh 10%;
+			text-align: center;
+		}
+
+		&.ts-video-column-video {
+			position: relative;
+			aspect-ratio: 16 / 9;
+
+			img.video-thumb {
+				height: 100%;
+				width: 100%;
+				object-fit: cover;
+			}
+
+			a {
+				position: absolute;
+				height: 100%;
+				width: 100%;
+
+				&::after {
+					content: '';
+					background-image: url(https://tristate.coop/sites/default/files/images/esg/play-video-thumbnail-cover.svg);
+					background-repeat: no-repeat;
+					background-position: center;
+					$play-size: 50%;
+					height: $play-size;
+					aspect-ratio: 1 / 1;
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					background-size: contain;
+					transform: translate(-50%, -50%);
+				}
+			}
+		}
+	}
+
+	@include bp($md) {
+		display: flex;
+
+		.ts-video-column {
+			display: flex;
+			flex: 0 0 50%;
+
+			&.ts-video-column-video {
+				order: 1;
+			}
+
+			.ts-video-column-content {
+				text-align: left;
+			}
+		}
+
+	}
+
+	@include bp($lg) {
+		@include mw;
+
+		.ts-video-column {
+			.ts-video-column-content {
+				padding: 10% 15%;
+			}
+		}
+	}
+}
+
+@include bp($md) {}
